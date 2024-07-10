@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+# To host this on Render, tell gunicorm where staticfiles are located
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', include('pages.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
+urlpatterns+= staticfiles_urlpatterns()
