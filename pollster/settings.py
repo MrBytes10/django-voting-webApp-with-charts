@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 # print("DATABASE_URL:", os.environ.get("DATABASE_URL")) #was a code to help in debugging
 
-import dj_database_url
+# import dj_database_url(used for hosting only)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,17 +83,25 @@ WSGI_APPLICATION = 'pollster.wsgi.application'
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }"""
-# To host on Render, install dj-database-url plus gunicorn, then do these..
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
+# To host on Render, install dj-database-url plus gunicorn, then do these..
+"""DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:////' + os.path.join(BASE_DIR, 'db.sqlite3'),
         conn_max_age=600
     )
-}
+}"""
 
 # Print for debugging
-print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
-print("DATABASES:", DATABASES)
+#print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
+#print("DATABASES:", DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
