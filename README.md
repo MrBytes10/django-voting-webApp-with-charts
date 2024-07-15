@@ -1,7 +1,9 @@
 # Django Voting Web App with Charts
 
-This Django web application allows users to participate in polls and visualize results with interactive charts.
+This Web Application built in python(Django) allows users to participate in polls and visualize results with interactive charts.
+Preview:
 
+<p> <img src="voting-webApp.jpg"> </p>
 ## Key Features
 
 - **Poll Creation**: Admins can create and manage multiple polls.
